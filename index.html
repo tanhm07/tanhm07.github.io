@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tan Hong Ming</title>
+    <title>Scrolling Nav - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/full-width-pics.css" rel="stylesheet">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,14 +26,15 @@
 
 </head>
 
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -41,17 +42,19 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Home</a>
             </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-					<li class="hidden">
-						<a class="page-scroll" href="#page-top"></a>
-					</li>
-                    <li>
-                        <a class="page-scroll" href="#bio">Biography</a>
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#exp">Experience</a>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -63,70 +66,52 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Full Width Image Header with Logo -->
-    <!-- Image backgrounds are set within the full-width-pics.css file. -->
-    <header class="image-bg-fluid-height">
-    	<img class="img-responsive img-center" src="img/thm2.jpg">
-        <h1>Hello.</h1>
-        <h2>I'm Hong Ming. I'm a mathematician-in-training.</h2>
-        <p>I'm a graduate research student at the Department of Mathematics, National University of Singapore. I will be graduating with my Master of Science by research in July and moving to the <a href="http://iora.nus.edu.sg" target="_blank">IORA</a> in August for my PhD studies.</p>
-    </header>
-
-    <!-- Content Section -->
-    <section id="bio">
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="section-heading">Biography</h1>
-                    <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+                    <img class="img-responsive img-center" src="img/thm2.jpg">
+                    <h1>Hello.</h1>
+                    <h2>I'm Hong Ming. I'm a mathematician-in-training.</h2>
+                    <p>I'm a graduate research student at the Department of Mathematics, National University of Singapore. I will be graduating with my Master of Science by research in July and moving to the <a href="http://iora.nus.edu.sg" target="_blank">IORA</a> in August for my PhD studies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section id="exp">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="section-heading">Experience</h1>
-                    <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+                    <h1>About Section</h1>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </section>
-	
-	<section id="contact">
-	    <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="section-heading">Contact</h1>
-                    <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    
-	</section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <h1>Services Section</h1>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
-    </footer>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contact Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -137,6 +122,7 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+
 </body>
 
 </html>
