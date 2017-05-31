@@ -56,3 +56,8 @@ of those sections to manage the look and feel of the site. */
     text-align: center;
     background: #eee;
 }
+
+footer {
+    background-color: #eee;
+    padding: 32px;
+}
