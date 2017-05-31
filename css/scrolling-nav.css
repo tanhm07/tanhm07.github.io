@@ -25,6 +25,10 @@ html {
     .top-nav-collapse {
         padding: 0;
     }
+
+    .container {
+        padding: 0;
+    }
 }
 
 .img-center {
