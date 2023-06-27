@@ -182,6 +182,7 @@
             color: #180920;
             font-size: 24px;
             transition: color 0.3s;
+            font-weight: bold;
         }
 
         .social-media-icons a:hover {
@@ -205,18 +206,19 @@
             color: #cccccc;
         }
 
+
         /* Media Queries */
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1199px) {
             h1 {
-                font-size: 28px;
+                font-size: 38px;
             }
 
             h2 {
-                font-size: 22px;
+                font-size: 32px;
             }
 
             p {
-                font-size: 16px;
+                font-size: 25px;
                 line-height: 1.6;
             }
 
@@ -230,20 +232,31 @@
                 padding: 10px;
             }
 
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .section-description {
+                font-size: 24px;
+            }
+
             .profile-picture {
-                width: 120px;
-                height: 120px;
+                width: 150px;
+                height: 150px;
             }
 
             .nav ul {
                 flex-wrap: wrap;
-                justify-content: flex-start;
+                justify-content: center;
+                font-size: 20px
             }
 
             .nav li {
                 margin: 0 5px;
             }
             
+
            
         }
     </style>
@@ -254,9 +267,16 @@
         <h1>TAN Hong Ming</h1>
         <p>I'm a <span class="typed" data-typed-items="Lecturer, Research Fellow"></span></p>
 		<div class="social-media-icons">
-			<a href="your_twitter_link" class="fa fa-twitter"></a>
-			<a href="your_linkedin_link" class="fa fa-linkedin"></a>
-			<!-- Add more icons as needed -->
+            <a href="https://www.linkedin.com/in/tanhm07" class="fa fa-linkedin"></a>
+            <a href="https://github.com/tanhm07" class="fa fa-github"></a>
+			<!-- <a href="your_twitter_link" class="fa fa-twitter"></a> -->
+            <!-- Add more icons as needed -->
+            <a href="path_to_your_cv.pdf" target="_blank">
+                <i class="fa fa-file" style="vertical-align: top;"></i> 
+                CV
+            </a>
+            
+
 		</div>
     </header>
     <nav class="nav">
