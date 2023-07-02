@@ -207,6 +207,20 @@
             color: #cccccc;
         }
 
+        dl {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 0;
+        }
+
 
         /* Media Queries */
         @media screen and (max-width: 1199px) {
@@ -218,9 +232,26 @@
                 font-size: 42px;
             }
 
+            h3 {
+                font-size: 32px;
+            }
             p {
                 font-size: 35px;
                 line-height: 1.6;
+            }
+
+            dl {
+                display: block;
+            }
+
+            dt {
+                margin-top: 10px;
+                font-size: 30px;
+            }
+
+            dd {
+                margin-left: 20px;
+                font-size: 26px;
             }
 
             .hero {
@@ -324,18 +355,23 @@
             <h2 class="section-title">Publications</h2>
             <h3>Published Papers</h3>
             <dl>
-              <dt>Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen</dt>
-              <dd><a href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a></dd>
-              <dd>Accepted, Journal of Global Antimicrobial Resistance</dd>
-              <dt>Zaman, Z., &amp; Tan, H. M. (2020). </dt>
-              <dd><a href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a> </dd>
-              <dd>CHANCE, 33(1), 10-15.</dd>
+              <dt><a href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a></dt>
+              <dd>Accepted, Journal of Global Antimicrobial Resistance
+                  <br>
+                  Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen
+              </dd>
+              <dt><a href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a> </dt>
+              <dd>CHANCE, 33(1), 10-15.
+                  <br>
+                  Zaman, Z., &amp; Tan, H. M. (2020). 
+              </dd>
             </dl>
             <h3>Published Chapters</h3>
             <dl>
-              <dt>Tan, H. M. (2023).</dt>
-              <dd><a href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a></dd>
-              <dd>In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.</dd>
+              <dt><a href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a></dt>
+              <dd>In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.
+                  <br>
+              Tan, H. M. (2023).</dd>
             </dl>
           
           
