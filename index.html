@@ -1,581 +1,544 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Tan Hong Ming @ NUS</title>
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-  <title>Tan Hong Ming @NUS</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333333;
+            overflow-x: hidden;
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #180920;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #180920;
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555555;
+        }
 
-  <!-- =======================================================
-  * Template Name: iPortfolio - v3.3.0
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0px;
+        }
+
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        .nav li {
+            margin: 0 10px;
+        }
+
+        .nav-link {
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #555555;
+        }
+
+        .nav-link.active {
+            color: #555555;
+            font-weight: bold;
+        }
+
+        .section-container {
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left; /* Align text to the left */
+			border-radius: 10px; /* Add rounded corners */
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #180920;
+        }
+
+        .section-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #555555;
+        }
+
+        .cta-section {
+            background-color: #180920;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .cta-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-media-icons a {
+            margin: 0 10px;
+            color: #180920;
+            font-size: 24px;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+
+        .social-media-icons a:hover {
+            color: #cccccc;
+        }
+
+        .footer {
+            background-color: #180920;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #cccccc;
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 0;
+        }
+
+
+        /* Media Queries */
+        @media screen and (max-width: 1199px) {
+            h1 {
+                font-size: 58px;
+            }
+
+            h2 {
+                font-size: 42px;
+            }
+
+            h3 {
+                font-size: 32px;
+            }
+            p {
+                font-size: 35px;
+                line-height: 1.6;
+            }
+
+            dl {
+                display: block;
+            }
+
+            dt {
+                margin-top: 10px;
+                font-size: 30px;
+            }
+
+            dd {
+                margin-left: 20px;
+                font-size: 26px;
+            }
+
+            .hero {
+                padding: 40px 10px;
+            }
+
+            .section-container {
+                max-width: 100%;
+                margin: 20px 10px;
+                padding: 10px;
+            }
+
+
+            .section-title {
+                font-size: 54px;
+            }
+
+            .section-description {
+                font-size: 30px;
+            }
+
+            .profile-picture {
+                width: 300px;
+                height: 300px;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 30px
+            }
+
+            .nav li {
+                margin: 0 5px;
+            }
+            
+            .social-media-icons a {
+                font-size: 34px;
+            }
+
+            .cta-title {
+                font-size: 44px;
+            }
+            
+            .cta-description {
+                font-size: 30px;
+            }
+
+            .cta-button {
+                font-size: 30px;
+                padding: 25px 40px;
+            } 
+        }
+    </style>
 </head>
-
 <body>
+    <header class="hero">
+        <img src="assets/img/profile-img2.jpg" alt="Profile Picture" class="profile-picture">
+        <h1>TAN Hong Ming</h1>
+        <p>I'm a <span class="typed" data-typed-items="Lecturer, Research Fellow"></span></p>
+		<div class="social-media-icons">
+            <a href="https://www.linkedin.com/in/tanhm07" class="fa fa-linkedin"></a>
+            <a href="https://github.com/tanhm07" class="fa fa-github"></a>
+			<!-- <a href="your_twitter_link" class="fa fa-twitter"></a> -->
+            <!-- Add more icons as needed -->
+            <a href="docs/CV Tan Hong Ming.pdf" target="_blank">
+                <i class="fa fa-file" style="vertical-align: top;"></i> 
+                CV
+            </a>
+            
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile-img2.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Tan Hong Ming</a></h1>
-        <div class="social-links mt-3 text-center">
-          <!--
-		  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-		  -->
-          <a href="https://github.com/tanhm07"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/tanhm07"><i class="bx bxl-linkedin"></i></a>
-        </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
+		</div>
+    </header>
+    <nav class="nav">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#research" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Research</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Teaching</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Projects</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#research">Research</a></li>
+            <li><a class="nav-link" href="#publications">Publications</a></li>
+            <li><a class="nav-link" href="#teaching">Teaching</a></li>
+            <li><a class="nav-link" href="#media">Media</a></li>
+            <li><a class="nav-link" href="#consulting">Industry</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Tan Hong Ming</h1>
-      <p>I'm a <span class="typed" data-typed-items="Lecturer, Research Fellow"></span></p>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>TAN Hong Ming is a Lecturer at the Department of Analytics and Operations at NUS Business School, National University of Singapore (NUS). He is also a Research Fellow at the Institute of Operations Research and Analytics at the same university. In his current role, Hong Ming is responsible for teaching and coordinating modules in the Undergraduate, MBA, Executive MBA, and Master of Science in Business Analytics (MSBA) programs. He is also involved in executive education programs such as Leading with Big Data Analytics and Machine Learning, and Practical Decision Making Using Data Science.
+    </nav>
+    <main>
+        <section id="about" class="section-container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-description">TAN Hong Ming is a Lecturer at the <a href="https://bschool.nus.edu.sg/analytics-operations/", target="_blank"> Department of Analytics and Operations</a>, NUS Business School<br>, National University of Singapore. He is also a Research Fellow at the <a href="http://iora.nus.edu.sg" target="_blank">Institute of Operations Research and Analytics</a> at the same university. In his current role, Hong Ming is responsible for teaching and coordinating modules in the Undergraduate, MBA, Executive MBA, and Master of Science in Business Analytics (MSBA) programs. He is also involved in executive education programs such as Leading with Big Data Analytics and Machine Learning, and Practical Decision Making Using Data Science.
           <br>
           <br>
-          Apart from teaching, Hong Ming is also involved in industrial research projects such as the AI-led Smart Data Centre Management Application where he is co-PI and the SIA Corp Lab. He manages teams of PhD students, research assistants, and interns, guiding and providing direction for the various research projects.
+          Apart from teaching, Hong Ming is also involved in industrial research projects such as the AI-led Smart Data Centre Management Application where he is co-PI and the SIA Corp Lab. He is the Lead AI Advisor for X0PA AI. He manages teams of Data Scientists, PhD students, research assistants, and interns, guiding and providing direction for the various research projects.
           <br>
           <br>
-          He serves as the Chair of the Department Finance Committee and a member of the Department Teaching Committee, and advisor for the student led clubs Business Analytics Consulting Team and NUS Private Equity Society.
-          </p>
-		  
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img2.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Lecturer</h3>
-            <p class="fst-italic">
-              <a href="https://bschool.nus.edu.sg/analytics-operations/", target="_blank"> Department of Analytics &amp; Operations</a>, NUS Business School<br>
-			  National University of Singapore
-            </p>
-            <h3>Research Fellow</h3>
-            <p class="fst-italic">
-			        <a href="http://iora.nus.edu.sg" target="_blank">Institute of Operations Research and Analytics</a><br>
-			        National University of Singapore
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-				<!--
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-				 -->
-                  <li><i class="bi bi-chevron-right"></i> <strong>City (current):</strong> <span>Singapore</span></li>
-				  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>thm at nus dot edu dot sg</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-				
-					<li><i class="bi bi-chevron-right"></i> <strong>Office:</strong> <span>BIZ1-08-72</span></li>
-				
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>PhD Operations Research and Analytics</span></li>
-                  
-				<!--                
-					<li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-				-->
-                </ul>
-              </div>
-            </div>
-
-			<p>
-			Please check out my research section for my other Work-In-Progress. 
-      </p>
-      <p>I was at MIT as a visiting student of Professor David Simchi-Levi from Jan 2020 to Feb 2020. My visit was cut short due to the COVID-19 pandemic.</p>
-
-      <p>
-        
-        
-          <h3><a href="docs/CV Tan Hong Ming.pdf" target="_blank">
-            <i class="bx bxs-file-pdf"></i>
-          </a> <a href="docs/CV Tan Hong Ming.pdf" target="_blank"><strong>Download</strong> full CV</a></h3>
-      </p>
-          </div>
-        </div>
-
-      </div>
-      
-        
-         
-  
-  
-        
-      
-    </section><!-- End About Section -->
-
-    <!-- ======= Research Interests Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Research Interests</h2>
-          <p>Includes, but not limited to</p>
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-joystick"></i>
-              <p><strong>Decision making under uncertainty</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-info-square"></i>
-              <p><strong>Information Economics</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-trophy"></i>
-              <p><strong>Sports Analytics</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-dice-6"></i>
-              <p><strong>Stochastic Control</strong></p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- End Research Interests Section -->
-
-<!-- ======= Research Section ======= -->
-<section id="research" class="services section-bg">
-    <div class="container">
-
-      <div class="section-title">
-    <h2>Research</h2>			
-      </div>
-    <div class="col-lg-6" data-aos="fade-right">
-      <h3>Published Papers</h3>
-      <dl>
-        <dt>Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen</dt>
-        <dd><a href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a></dd>
-        <dd>Accepted, Journal of Global Antimicrobial Resistance</dd>
-        <dt>Zaman, Z., &amp; Tan, H. M. (2020). </dt>
-        <dd><a href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a> </dd>
-        <dd>CHANCE, 33(1), 10-15.</dd>
-      </dl>
-      <h3>Published Chapters</h3>
-      <dl>
-        <dt>Tan, H. M. (2023).</dt>
-        <dd><a href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a></dd>
-        <dd>In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.</dd>
-      </dl>
-    </div>
-    <div class="col-lg-6" data-aos="fade-right">
-      <h3>Working Papers</h3>
-      <dl>
-        <dt><a href="https://ssrn.com/abstract=3141043">Risky Investments under Static and Dynamic Information Acquisition</a> (Sep 9, 2022)</dt>
-        <dd>Jussi Keppo, Hong Ming Tan, and Zhou Chao </dd>
-        <dt>Calibrating Airline Sales Forecast in Volatile Environments: Changepoint Detection and Applications</dt>
-        <dd>Changchun Liu, Hong Ming Tan, Ek Hong Lim, and Chung-Piaw Teo</dd>
-        <dt>Flying High with Improved Data: How an Instructor Training Workshop Boosting Pilot Competency Assessment</dt>
-        <dd>Qingyin Ge, Jussi Keppo, Chuan Hoo Tan, Hong Ming Tan</dd>
-        <dt>Dynamic Pricing in the Airline Industry: Theory and Practice</dt>
-        <dd>Chung Khim Lae, Hong Ming Tan, Bar Light, Jussi Keppo</dd>
-        <dt>Predicting CYP2D6 epigenetics markers</dt>
-        <dd>Wei Jing Fong, Hong Ming Tan, Rishabh Garg, Hong Pan, Varsha Gupta, Bernardus Krishna, Zuo Hui Chen, Natania Yovela Purwanto, Fabian Yap, Kok Hian Tan, Jerry, Kok Yen Chan, Shiao-Yng Chan, Nicole Goh, Nikita Rane, Mei Han, Michael J Meaney, Dennis Wang, Jussi Keppo and Geoffrey Chern-Yee Tan</dd>
-        <dt>Investigating the Value of a Clustering Approach to the Self-Referential Encoding Task in Identifying Subtypes of Depression</dt>
-        <dd>Geoffrey Chern-Yee Tan, Ziying Wang, Rachel, Jing Min Ong, Danan Lee, Nikita Rane, Sheryl, Yu Xian Tey, Si Ying Chua, Nicole, Shu En Goh, Glynis, Weibin Lam, Atlanta Chakraborty, Anthony, Khye Loong Yew, Sin Kee Ong, Jin Lin Kee, Xin Ying Lim, Nawal Hashim, Sharon Huixian Lu, Michael J Meaney, Serenella Tolomeo, Christopher L. Asplund, Hong Ming Tan and Jussi Keppo</dd>
-        <dt>Data Science Approach to Process Control</dt>
-        <dd>Yuda Ho, Jussi Keppo, Ek Hong Lim, Herman Tan, and Hong Ming Tan</dd>
-      </dl>
-    </div>
-    <div class="col-lg-6" data-aos="fade-right">
-      <h3>Work-In-Progress</h3>
-        <dl>
-          <dt>Learning and Earning with Offline Data</dt>
-          <dd>Jussi Keppo, Hong Ming Tan, Chung-Piaw Teo, and Minglong Zhou</dd>
-          <dt>Competency and Incompetency in Pilot Training: the Andragogical Approach</dt>
-          <dd>Industry project with SIA Corp Lab</dd>
-          <dt>Optimal Detection of Faulty Batches</dt>
-          <dd>Industry project with global medical device company</dd>
-          <!-- <dd>Collaboration with IMH</dd> -->
-        </dl>
-    </div>
-    <div class="col-lg-6" data-aos="fade-right">
-        <h3>Errata</h3>
-        <dl>
-            <dt>Owen, D. B. (1980). A table of normal integrals: A table. Communications in Statistics-Simulation and Computation, 9(4), 389-419.</dt>
-            <dd>While trying to solve some integrals, I found an error with the integral 110 in TABLE I (page 9). 
-                <br> 
-                The integral is missing a “b” in the term G(x sqrt(1+b^2) + a/ sqrt(1+b^2)). <br>
-                It should be G(x sqrt(1+b^2) + ab/ sqrt(1+b^2)). </dd>
-        </dl>
-    </div>
-      
-
-    </div>
-  </section>
-  <!-- End Research Section -->
-
-
-    <!-- ======= Teaching Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-  
-          <div class="section-title">
-              <h2>Teaching</h2>
-          </div>
-  
-          <div class="row" data-aos="fade-right">
+          He serves as the Chair of the Department Finance Committee and a member of the Department Teaching Committee, and advisor for the student led clubs Business Analytics Consulting Team and NUS Private Equity Society.</p>
+        </section>
+        <section id="research" class="section-container">
+            <h2 class="section-title">Research</h2>
+            <p class="section-description">As a researcher, my work spans across multiple disciplines including healthcare, education, aviation, and mental health. These projects demonstrate my ability to apply complex statistical methods and data-driven approaches to real-world business problems, as well as my commitment to leveraging technology to address health issues.
+            <br>
+            <br>
+            Another significant part of my research involves economic and statistical modeling. I believe in the power of simple models to understand complex real-world phenomena. By distilling complex systems into their essential components, these models provide valuable insights that guide decision-making and strategy.
+            <br>
+            <br>
+            In summary, my research is characterized by its diversity and practical application, demonstrating my commitment to using data analytics and simple models to solve real-world problems.</p>
+        </section>
+        <section id="publications" class="section-container">
+            <h2 class="section-title">Publications</h2>
+            <h3>Published Papers</h3>
+            <dl>
+              <dt><a href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a></dt>
+              <dd>Accepted, Journal of Global Antimicrobial Resistance
+                  <br>
+                  Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen
+              </dd>
+              <dt><a href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a> </dt>
+              <dd>CHANCE, 33(1), 10-15.
+                  <br>
+                  Zaman, Z., &amp; Tan, H. M. (2020). 
+              </dd>
+            </dl>
+            <h3>Published Chapters</h3>
+            <dl>
+              <dt><a href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a></dt>
+              <dd>In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.
+                  <br>
+              Tan, H. M. (2023).</dd>
+            </dl>
           
-          <h3>Awards</h3>
-          <dl>
-            <dt>Outstanding Graduate Student Teaching Award</dt>
-            <dd>2018/2019</dd>
-            <dt>Letter of Commendation for Graduate Tutor</dt>
-            <dd>2016/2017</dd>
-          </dl>
-          </div>
-          <div class="row" data-aos="fade-right">
-          <h3>Pedagogy Courses Attended</h3>
-          <dl>
-              <dt>Teaching with Cases: Engage, Energize, and Challenge Your Students</dt>
-              <dd>2023, Harvard Business Publishing Education</dd>
-              <dt><a href="http://cdtl.nus.edu.sg/ta-prog/" target="_blank">Training Programme for Teaching Assistants</a></dt>
-              <dd>2016, NUS</dd>
-              <dt><a href="http://www.tp.edu.sg/centres/learning-academy/programmes" target="_blank">Teaching in Higher Education Certificate (THEC)</a></dt>
-              <dd>2014, Temasek Polytechnic</dd>
-          </dl>
-        </div>
-          <div class="row" data-aos="fade-up">
-            <div class="col-lg-12 d-flex justify-content-center">
-              <ul id="portfolio-flters">
-                <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-grad">Graduate</li>
-                <li data-filter=".filter-ug">Undergraduate</li>
-                <li data-filter=".filter-exec">Executive</li>
-              </ul>
-            </div>
-          </div>
-  
-          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-ug">
-              <div class="portfolio-wrap">
-                
-                <h5>DAO1704</h5>
-                <h5>Decision Analytics Using Spreadsheets</h5> 
-                <h5>Instructor, 18/19 Sem 2, 20/21 Sem 2</h5>
-                <div class="portfolio-links">
-                  <a href="https://nusmods.com/modules/DAO1704/decision-analytics-using-spreadsheets" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-ug">
-              <div class="portfolio-wrap">
-                <h5>MA1101R</h5> 
-                <h5>Linear Algebra I</h5>
-                <h5>TA, 16/17 Sem 2</h5>
-                <div class="portfolio-links">
-                
-                  <a href="https://nusmods.com/modules/MA1101R/linear-algebra-i" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-ug">
-              <div class="portfolio-wrap">
-                
-                <h5>MA1505</h5>
-                <h5>Mathematics I</h5>
-                <h5>TA, 16/17 Sem 1</h5>
-                <div class="portfolio-links">
-                
-                  <a href="https://nusmods.com/modules/MA1505/mathematics-i" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-exec">
-              <div class="portfolio-wrap">
-                
-                <h5>Leading with Big Data Analytics</h5>
-                <h5>and Machine Learning</h5>
-                <h5>Instructor, Dec 2020, Mar 2021</h5>
-                <div class="portfolio-links">
-                
-                  <a href="https://executive-education.nus.edu.sg/programmes/leading-with-big-data-analytics-machine-learning/" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-lg-4 col-md-6 portfolio-item filter-grad">
-              <div class="portfolio-wrap">
-                
-                <h5>DBA5101</h5>
-                <h5>Analytics in Managerial Economics</h5>
-                <h5>TA, 18/19 Sem 1, 19/20 Sem 1</h5>
-                <h5>Instructor, 20/21 Sem 1</h5>
-                <div class="portfolio-links">
-                  <a href="https://nusmods.com/modules/DBA5101/analytics-in-managerial-economics" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-      </section><!-- End Teaching Section -->
-
-
-
-
-    <!-- ======= CV Section ======= -->
-    <section id="resume" class="resume section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Consulting and Industry Projects</h2>
-
           
-        
-        </div>
-
-
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
+            <h3>Working Papers</h3>
+            <dl>
+              <dt><a href="https://ssrn.com/abstract=3141043">Risky Investments under Static and Dynamic Information Acquisition</a> (Sep 9, 2022)</dt>
+              <dd>Jussi Keppo, Hong Ming Tan, and Zhou Chao </dd>
+              <dt>Fare Ladder Optimization: Airline Revenue Management in Volatile Environment</dt>
+              <dd>Changchun Liu, Hong Ming Tan, Chung-Piaw Teo, Gang Guo, Yan Chen, Tim Lee</dd>
+              <dt>Flying High with Improved Data: How an Instructor Training Workshop Boosting Pilot Competency Assessment</dt>
+              <dd>Qingyin Ge, Jussi Keppo, Chuan Hoo Tan, Hong Ming Tan</dd>
+              <dt>Dynamic Pricing in the Airline Industry: Theory and Practice</dt>
+              <dd>Chung Khim Lae, Hong Ming Tan, Bar Light, Jussi Keppo</dd>
+              <dt>Predicting CYP2D6 epigenetics markers</dt>
+              <dd>Wei Jing Fong, Hong Ming Tan, Rishabh Garg, Hong Pan, Varsha Gupta, Bernardus Krishna, Zuo Hui Chen, Natania Yovela Purwanto, Fabian Yap, Kok Hian Tan, Jerry, Kok Yen Chan, Shiao-Yng Chan, Nicole Goh, Nikita Rane, Mei Han, Michael J Meaney, Dennis Wang, Jussi Keppo and Geoffrey Chern-Yee Tan</dd>
+              <dt>Investigating the Value of a Clustering Approach to the Self-Referential Encoding Task in Identifying Subtypes of Depression</dt>
+              <dd>Geoffrey Chern-Yee Tan, Ziying Wang, Rachel, Jing Min Ong, Danan Lee, Nikita Rane, Sheryl, Yu Xian Tey, Si Ying Chua, Nicole, Shu En Goh, Glynis, Weibin Lam, Atlanta Chakraborty, Anthony, Khye Loong Yew, Sin Kee Ong, Jin Lin Kee, Xin Ying Lim, Nawal Hashim, Sharon Huixian Lu, Michael J Meaney, Serenella Tolomeo, Christopher L. Asplund, Hong Ming Tan and Jussi Keppo</dd>
+              <dt>Data Science Approach to Process Control</dt>
+              <dd>Yuda Ho, Jussi Keppo, Ek Hong Lim, Herman Tan, and Hong Ming Tan</dd>
+            </dl>
           
-           <h3 class="resume-title">ResMed</h3>
-           <h3 class="resume-title">Singapore Airlines</h3>
-           <h3 class="resume-title">Institute of Mental Health</h3>
-           <h3 class="resume-title">X0PA AI</h3>
-           <h3 class="resume-title">Kulicke & Soffa</h3>
-           
-          </div>
-        </div>
+          
+            <h3>Work-In-Progress</h3>
+              <dl>
+                <dt>Learning and Earning with Offline Data</dt>
+                <dd>Jussi Keppo, Hong Ming Tan, Chung-Piaw Teo, and Minglong Zhou</dd>
+                <dt>Competency and Incompetency in Pilot Training: the Andragogical Approach</dt>
+                <dd>Industry project with SIA Corp Lab</dd>
+                <dt>Optimal Detection of Faulty Batches</dt>
+                <dd>Industry project with global medical device company</dd>
+                <!-- <dd>Collaboration with IMH</dd> -->
+              </dl>
+          
+          
+              <h3>Errata</h3>
+              <dl>
+                  <dt>Owen, D. B. (1980). A table of normal integrals: A table. Communications in Statistics-Simulation and Computation, 9(4), 389-419.</dt>
+                  <dd>While trying to solve some integrals, I found an error with the integral 110 in TABLE I (page 9). 
+                      <br> 
+                      The integral is missing a “b” in the term G(x sqrt(1+b^2) + a/ sqrt(1+b^2)). <br>
+                      It should be G(x sqrt(1+b^2) + ab/ sqrt(1+b^2)). </dd>
+              </dl>
+          
+            
+        </section>
+        <section id="teaching" class="section-container">
+            <h2 class="section-title">Teaching</h2>
+            <!-- <p class="section-description">Details about your teaching experience and philosophy.</p> -->
+            <h3>Courses</h3>
+            <dl>
+                <dt>AI For Leaders: Leveraging Data Analytics For Business</dt>
+                <dd>2023</dd>
+                <dt>Leading with Big Data Analytics and Machine Learning</dt>
+                <dd>2020 - 2023</dd>
+                <dt>General Management Programme</dt>
+                <dd>2022</dd>
+                <dt>BMA5275 Analytics in Managerial Economics</dt>
+                <dd>22/23 Sem 1</dd>
+                <dt>BME5201 Leading With Analytics</dt>
+                <dd>22/23 Sem 1</dd>
+                <dt>DBA5101 Analytics in Managerial Economics</dt>
+                <dd>18/19 Sem 1, 19/20 Sem 1, 20/21 Sem 1</dd>
+                <dt>DAO1704 Decision Analytics Using Spreadsheets</dt>
+                <dd>18/19 Sem 2, 20/21 Sem 2, 21/22 Sem 1, 21/22 Sem 2, 22/23 Sem 1, 22/23 Sem 2</dd>
+                <dt>MA1101R Linear Algebra I</dt>
+                <dd>16/17 Sem 2</dd>
+                <dt>MA1505 Mathematics I</dt>
+                <dd>16/17 Sem 1</dd>
 
-      </div>
-    </section><!-- End CV Section -->
-
-    <!-- ======= Professional Development Section ======= -->
-<section id="pro" class="services section-bg">
-    <div class="container">
-
-      <div class="section-title">
-    <h2>Professional Development</h2>			
-      </div>
-    <div class="col-lg-6" data-aos="fade-right">
-        <h2>Appointments</h2>
-        <dl>
-            <dt>NUS Teaching Assistant</dt>
-            <dd>MA1105, 16/17 Sem 1</dd>
-            <dd>MA1101R, 16/17 Sem 2</dd>
-            <dd>DSC5101, 18/19 Sem 1, 19/20 Sem 1</dd>
-            <dd>DAO1704/DSC1007, 18/19 Sem 2, 20/21 Sem 2</dd>
-            <dt>NUS Instructor/Lecturer</dt>
-            <dd>DBA5101, 20/21 Sem 1</dd>
-            <dt>Temasek Polytechnic Lecturer</dt>
-            <dd>Subject Leader</dd>
-            <dd>2013-2015</dd>
-            <dt>Analytics for X Conference 2021</dt>
-            <dd>Local Organising Committee</dd>
-            <dt>MSOM 2019 Conference and SIG Meeting </dt>
-            <dd>Local Organising Committee</dd>
-        </dl>
-      </div>
-      <div class="col-lg-6" data-aos="fade-right">
-        <h2>Courses Attended</h2>
-        <dl>
-            <dt>R Programming Workshop</dt>
-            <dd>2017, <a href="http://bizfaculty.nus.edu/faculty-profiles/519-ben" target="_blank">Dr Ben Charoenwong</a>, NUS</dd>
-            <dt><a href="http://wing.comp.nus.edu.sg/wesst2017" target="_blank">WORKSHOP ON EDUCATIONAL AND SOCIAL SCIENCE TECHNOLOGIES</a></dt>
-            <dd>2017, NUS</dd>
-            <dt><a href="http://www3.ntu.edu.sg/cce2/faculty_courses/coursedetail.asp?id=%7BE7B7B562-FC4F-E311-A3BC-001560A3FDED%7D" target="_blank">WSQ 3D Printing for Rapid Product Development</a></dt>
-            <dd>2015, NTU</dd>
-            <dt><a href="http://gatewaypl.com/gw/courses/dahc/" target="_blank">Data Analytics in Healthcare</a></dt>
-            <dd>2015, Dr KC Lun, <a href="http://gatewaypl.com/gw/" target="_blank">GATEWAY CONSULTING PTE LTD</a></dd>           
-        </dl>
-      </div>    
-      <div class="col-lg-6" data-aos="fade-right">
-        <h2>Conferences</h2>
-        # denotes presentation by co-author
-        <dl>
-            <dt><a href="http://meetings2.informs.org/wordpress/seattle2019/">2019 INFORMS Annual Meeting</a></dt>
-            <dd>Investment Valuations and Falling Cost of Information, MC29a</dd>
-            <dt><a href="https://informs-aps.smp.uq.edu.au">INFORMS-APS 2019</a></dt>
-            <dd>Equity Valuation and Falling Cost of Data Analytics, Session 3.6</dd>
-            <dt><a href="https://msom2019.nus.edu.sg" target="_blank">MSOM 2019 Conference and SIG Meeting</a></dt>
-            <dd>Investment Valuations and Falling Cost of Information, Session F10</dd>
-            <dt><a href="http://meetings2.informs.org/wordpress/2018international/" target="_blank">2018 INFORMS INTERNATIONAL MEETING</a></dt>
-            <dd>Investment Decisions and Falling Cost of Data Analytics, Technical Sessions - TD11</dd>
-            <dd>2018, <a href="https://www.informs.org/">INFORMS</a></dd>
-            <dt><a href="https://cqf.nus.edu.sg/events.aspx?e=ws2017_5th_NUS-USPC" target="_blank">5th NUS-USPC Workshop on Machine Learning and FinTech</a></dt>
-            <dd># Investment Decisions and Falling Cost of Data Analytics</dd>
-            <dd>2017, <a href="https://cqf.nus.edu.sg/default.aspx" target="_blank">CQF</a></dd>
-            <dt><a href="http://meetings2.informs.org/wordpress/houston2017/" target="_blank">2017 INFORMS ANNUAL MEETING</a></dt>
-            <dd># Investment Decisions and Falling Cost of Data Analytics, Technical Sessions - TE55</dd>
-            <dd>2017, <a href="https://www.informs.org/">INFORMS</a></dd>
-            <dt><a href="http://www.rmi.nus.edu.sg/events/rmc2017/sciprog-rmc2017.html" target="_blank">Eleventh Annual Risk Management Conference</a></dt>
-            <dd># Investment Decisions and Falling Cost of Data Analytics - Working Paper for Scientific Program</dd>
-            <dd>2017, <a href="http://rmi.nus.edu.sg/" target="_blank">RMI</a></dd>
-        </dl>
-      </div>                
-    </div>
-    </div>
-
-      
-
-    </div>
-  </section>
-  <!-- End Professional Development Section -->
-
-
-
-    
-
-    
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Office:</h4>
-                <p>Mochtar Raidy Building, BIZ1-08-72, 15 Kent Ridge Drive, Singapore 119245</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>thm at nus dot edu dot sg</p>
-              </div>
-              <!--
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-            -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d628.1972195121372!2d103.77411210281564!3d1.2924516280063798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1aff72797d93%3A0x46e392c21ec882ca!2sNUS%20Business%20School!5e0!3m2!1sen!2ssg!4v1627396773025!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </dl>
+            <h3>Awards</h3>
+            <dl>
+              <dt>Outstanding Graduate Student Teaching Award</dt>
+              <dd>2018/2019, Department of Analytics and Operations, NUS Business School</dd>
+              <dt>Letter of Commendation for Graduate Tutor</dt>
+              <dd>2016/2017, Department of Mathematics, NUS</dd>
+            </dl>
             </div>
-
-          </div>
-
-          
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+            <div class="row" data-aos="fade-right">
+            <h3>Pedagogy</h3>
+            <dl>
+                <dt>Teaching with Cases: Engage, Energize, and Challenge Your Students</dt>
+                <dd>2023, Harvard Business Publishing Education</dd>
+                <dt><a href="http://cdtl.nus.edu.sg/ta-prog/" target="_blank">Training Programme for Teaching Assistants</a></dt>
+                <dd>2016, NUS</dd>
+                <dt><a href="http://www.tp.edu.sg/centres/learning-academy/programmes" target="_blank">Teaching in Higher Education Certificate (THEC)</a></dt>
+                <dd>2014, Temasek Polytechnic</dd>
+            </dl>
+        </section>
+        <section id="media" class="section-container">
+            <h2 class="section-title">Media</h2>
+            <!-- <p class="section-description">Teaching connections, Invited Speaker, EE.</p> -->
+            <ul>
+                <li>Guest Speaker - Jun 20, 2023, APSCo Asia</li>
+                <li><a href="https://blog.nus.edu.sg/teachingconnections/2023/04/26/designing-fair-quizzes-with-a-question-pool/">Designing Fair Quizzes with a Question Pool</a> - Apr 26, 2023, Teaching Connections, NUS.</li>
+                <li><a href="https://executivecourses.com/articles/executive-education-courses-in-data-analytics">Executive Education Courses in Data Analytics</a> - Sep 10, 2021, Executive Courses</li>
+            </ul>
+        </section>
+        <section id="consulting" class="section-container">
+            <h2 class="section-title">Consulting and Industry Projects</h2>
+            <!-- <p class="section-description">Consulting and Industry Projects</p> -->
+            <ul>
+                <li>ResMed</li>
+                    <li>Singapore Airlines</li>
+                    <li>Institute of Mental Health</li>
+                    <li>X0PA AI</li>
+                    <li>Kulicke & Soffa</li>
+            </ul>
+        </section>
+        <section id="contact" class="section-container">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-description"><strong>Office:</strong> Mochtar Raidy Building, BIZ1-08-72, 15 Kent Ridge Drive, Singapore 119245
+                        <br> <strong>Email:</strong> thm at nus dot edu dot sg
+                </p>
+        </section>
+    </main>
+    <div class="cta-section">
+        <h2 class="cta-title">Ready to Start a Project?</h2>
+        <p class="cta-description">Contact me to discuss your project requirements and goals.</p>
+        <a href="mailto:thm@nus.edu.sg" class="cta-button">Get in Touch</a>
     </div>
-  </footer><!-- End  Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <footer class="footer">
+        <p  style="color: #ffffff;">© 2023 Tan Hong Ming. All rights reserved. 
+            <!--  | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>-->
+        </p>
+    </footer>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
+    <script>
+        // Smooth scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.nav-link');
+            for (const link of links) {
+                link.addEventListener('click', smoothScroll);
+            }
+            function smoothScroll(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetPosition = document.querySelector(targetId).offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+                window.requestAnimationFrame(step);
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                    if (progress < duration) window.requestAnimationFrame(step);
+                }
+                function easeInOutCubic(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t + 2) + b;
+                }
+            }
+        });
+    </script>
+	<script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/js/main.js"></script>
-
+  
 </body>
-
 </html>
