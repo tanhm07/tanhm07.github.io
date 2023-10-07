@@ -1,0 +1,40 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px; /* Creates spacing between elements */
+}
+
+.logo {
+    max-width: 450px; /* Adjust as needed */
+    margin-bottom: -80px;
+}
+
+.description {
+    font-size: 20px; /* Adjust as needed */
+    text-align: center;
+}
+
+.contact-link {
+    font-size: 12px; /* Adjust as needed */
+    color: white; /* Adjust if you want a different link color */
+    text-decoration: none;
+    margin-top: 70px;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
