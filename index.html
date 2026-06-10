@@ -1,582 +1,818 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tan Hong Ming @ NUS</title>
+    <meta name="description" content="Tan Hong Ming — Assistant Dean (Digital Operations), Deputy Head and Senior Lecturer, Department of Analytics and Operations, NUS Business School.">
+
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-      
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        :root {
+            --bg: #FBFAF7;
+            --surface: #FFFFFF;
+            --ink: #1F2430;
+            --muted: #5B6472;
+            --faint: #8A919C;
+            --accent: #1E3A5F;
+            --accent-soft: #EDF2F8;
+            --link: #205A8A;
+            --link-hover: #163E60;
+            --hairline: #E8E4DC;
+            --chip-bg: #F3F1EC;
+            --max-width: 880px;
+            --serif: 'Fraunces', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            font-family: 'Montserrat', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333333;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, p {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #180920;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #180920;
-        }
-
-        p {
+            font-family: var(--sans);
             font-size: 16px;
-            line-height: 1.6;
-            color: #555555;
+            line-height: 1.65;
+            color: var(--ink);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
-            color: #007bff;
+            color: var(--link);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.15s ease;
         }
 
         a:hover {
-            color: #0056b3;
+            color: var(--link-hover);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
-        .hero {
-            background-color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .profile-picture {
-            border-radius: 50%;
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav {
-            background-color: #ffffff;
+        /* ---------- Top navigation ---------- */
+        .topbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 0px;
+            background: rgba(251, 250, 247, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--hairline);
         }
 
-        .nav ul {
-            list-style-type: none;
-            padding: 0;
+        .topbar-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
-            justify-content: center;
-            margin-top: 0;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
         }
 
-        .nav li {
-            margin: 0 10px;
+        .brand {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--ink);
+            letter-spacing: 0.01em;
+            white-space: nowrap;
         }
 
-        .nav-link {
-            color: #333333;
+        .brand:hover { text-decoration: none; color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 8px 11px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted);
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+            background: var(--chip-bg);
             text-decoration: none;
-            transition: color 0.3s;
-            padding: 10px;
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
             cursor: pointer;
+            color: var(--ink);
         }
 
-        .nav-link:hover {
-            color: #555555;
+        /* ---------- Hero ---------- */
+        .hero {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 72px 24px 56px;
+            display: flex;
+            align-items: center;
+            gap: 56px;
         }
 
-        .nav-link.active {
-            color: #555555;
-            font-weight: bold;
+        .hero-text { flex: 1; }
+
+        .hero-kicker {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--faint);
+            margin: 0 0 14px;
         }
 
-        .section-container {
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left; /* Align text to the left */
-			border-radius: 10px; /* Add rounded corners */
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.08;
+            margin: 0 0 16px;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+
+        .hero-roles {
+            font-size: 19px;
+            color: var(--muted);
+            margin: 0 0 28px;
+            min-height: 1.65em;
+        }
+
+        .hero-roles .typed-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero-roles .cursor {
+            display: inline-block;
+            width: 2px;
+            background: var(--accent);
+            animation: blink 1s step-end infinite;
+            margin-left: 1px;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .hero-roles .cursor { animation: none; }
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            background: var(--surface);
+            color: var(--ink);
+        }
+
+        .hero-links a:hover {
+            text-decoration: none;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-links a.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .hero-links a.primary:hover {
+            background: var(--link-hover);
+            color: #fff;
+        }
+
+        .hero-links svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-photo img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 8px 28px rgba(31, 36, 48, 0.18);
+            border: 4px solid var(--surface);
+        }
+
+        /* ---------- Sections ---------- */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        section {
+            padding: 48px 0 8px;
+            scroll-margin-top: 72px;
+            border-top: 1px solid var(--hairline);
         }
 
         .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #180920;
+            font-family: var(--serif);
+            font-size: 30px;
+            font-weight: 600;
+            margin: 0 0 24px;
+            color: var(--ink);
+            letter-spacing: -0.01em;
         }
 
-        .section-description {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-            color: #555555;
+        section h3 {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 40px 0 16px;
         }
 
-        .cta-section {
-            background-color: #180920;
-            padding: 60px 20px;
-            text-align: center;
+        section h3:first-of-type { margin-top: 8px; }
+
+        .prose p {
+            margin: 0 0 18px;
+            color: var(--ink);
+            max-width: 72ch;
         }
 
-        .cta-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #ffffff;
+        /* ---------- Publication lists ---------- */
+        .pub-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .cta-description {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #ffffff;
+        .pub-list li {
+            padding: 14px 0 14px 20px;
+            border-left: 2px solid var(--hairline);
+            margin-bottom: 4px;
+            transition: border-color 0.15s ease;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background-color 0.3s;
+        .pub-list li:hover { border-left-color: var(--accent); }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 15.5px;
+            line-height: 1.5;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        .cta-button:hover {
-            background-color: #0056b3;
-            color: #ffffff;
-        }
-
-        .social-media-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .social-media-icons a {
-            margin: 0 10px;
-            color: #180920;
-            font-size: 24px;
-            transition: color 0.3s;
-            font-weight: bold;
-        }
-
-        .social-media-icons a:hover {
-            color: #cccccc;
-        }
-
-        .footer {
-            background-color: #180920;
-            text-align: center;
-            padding: 20px;
+        .pub-venue {
             font-size: 14px;
-            color: #ffffff;
+            color: var(--muted);
+            font-style: italic;
         }
 
-        .footer a {
-            color: #ffffff;
+        .pub-authors {
+            font-size: 14px;
+            color: var(--muted);
+            display: block;
+        }
+
+        .pub-note {
+            font-size: 13.5px;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* ---------- Courses & awards ---------- */
+        .row-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .row-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--hairline);
+            font-size: 15px;
+        }
+
+        .row-list li:last-child { border-bottom: none; }
+
+        .row-list .item-name { font-weight: 500; }
+
+        .row-list .item-meta {
+            color: var(--muted);
+            font-size: 13.5px;
+            text-align: right;
+            flex-shrink: 0;
+            max-width: 45%;
+        }
+
+        /* ---------- Media list ---------- */
+        .media-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .media-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--hairline);
+            font-size: 15px;
+        }
+
+        .media-list li:last-child { border-bottom: none; }
+
+        .media-list .media-meta {
+            display: block;
+            font-size: 13.5px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        /* ---------- Client chips ---------- */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .chips li {
+            padding: 7px 15px;
+            background: var(--chip-bg);
+            border: 1px solid var(--hairline);
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        /* ---------- Contact & CTA ---------- */
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 12px;
+            padding: 28px 32px;
+            font-size: 15px;
+        }
+
+        .contact-card p { margin: 0 0 10px; }
+        .contact-card p:last-child { margin: 0; }
+        .contact-card strong { color: var(--ink); }
+
+        .cta {
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 64px 24px;
+        }
+
+        .cta h2 {
+            font-family: var(--serif);
+            font-size: 30px;
+            font-weight: 600;
+            margin: 0 0 10px;
+        }
+
+        .cta p {
+            margin: 0 0 28px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 13px 30px;
+            background: #fff;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+
+        .cta a:hover {
             text-decoration: none;
+            background: var(--accent-soft);
         }
 
-        .footer a:hover {
-            color: #cccccc;
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 28px 24px;
+            font-size: 13.5px;
+            color: var(--faint);
+            background: var(--bg);
         }
 
-        dl {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
-        }
+        /* ---------- Mobile ---------- */
+        @media (max-width: 760px) {
+            .nav-toggle { display: block; }
 
-        dt {
-            font-weight: bold;
-        }
-
-        dd {
-            margin-left: 0;
-        }
-
-
-        /* Media Queries */
-        @media screen and (max-width: 1199px) {
-            h1 {
-                font-size: 58px;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--hairline);
+                padding: 8px 16px 16px;
+                box-shadow: 0 12px 24px rgba(31, 36, 48, 0.08);
             }
 
-            h2 {
-                font-size: 42px;
-            }
+            .nav-links.open { display: flex; }
 
-            h3 {
-                font-size: 32px;
-            }
-            p {
-                font-size: 35px;
-                line-height: 1.6;
-            }
-
-            dl {
-                display: block;
-            }
-
-            dt {
-                margin-top: 10px;
-                font-size: 30px;
-            }
-
-            dd {
-                margin-left: 20px;
-                font-size: 26px;
+            .nav-links a {
+                padding: 13px 12px;
+                font-size: 16px;
             }
 
             .hero {
-                padding: 40px 10px;
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 32px;
+                padding: 48px 24px 40px;
             }
 
-            .section-container {
+            .hero h1 { font-size: 38px; }
+            .hero-roles { font-size: 17px; }
+            .hero-links { justify-content: center; }
+            .hero-photo img { width: 180px; height: 180px; }
+
+            .section-title { font-size: 26px; }
+
+            .row-list li {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .row-list .item-meta {
+                text-align: left;
                 max-width: 100%;
-                margin: 20px 10px;
-                padding: 10px;
             }
 
-
-            .section-title {
-                font-size: 54px;
-            }
-
-            .section-description {
-                font-size: 30px;
-            }
-
-            .profile-picture {
-                width: 300px;
-                height: 300px;
-            }
-
-            .nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                font-size: 30px
-            }
-
-            .nav li {
-                margin: 0 5px;
-            }
-            
-            .social-media-icons a {
-                font-size: 34px;
-            }
-
-            .cta-title {
-                font-size: 44px;
-            }
-            
-            .cta-description {
-                font-size: 30px;
-            }
-
-            .cta-button {
-                font-size: 30px;
-                padding: 25px 40px;
-            } 
+            .contact-card { padding: 22px 20px; }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <img src="assets/img/profile-img2.jpg" alt="Profile Picture" class="profile-picture">
-        <h1>TAN Hong Ming</h1>
-        <p>I'm a <span class="typed" data-typed-items="Assistant Dean, Deputy Head, Senior Lecturer"></span></p>
-		<div class="social-media-icons">
-            <a href="https://www.linkedin.com/in/7hm/" class="fa fa-linkedin"></a>
-            <a href="https://github.com/tanhm07" class="fa fa-github"></a>
-			<!-- <a href="your_twitter_link" class="fa fa-twitter"></a> -->
-            <!-- Add more icons as needed -->
-            <a href="docs/CV Tan Hong Ming.pdf" target="_blank">
-                <i class="fa fa-file" style="vertical-align: top;"></i> 
-                CV
-            </a>
-            
 
-		</div>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#top">Tan Hong Ming</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#consulting">Industry</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </header>
-    <nav class="nav">
-        <ul>
-            <li><a class="nav-link" href="#about">About</a></li>
-            <li><a class="nav-link" href="#research">Research</a></li>
-            <li><a class="nav-link" href="#publications">Publications</a></li>
-            <li><a class="nav-link" href="#teaching">Teaching</a></li>
-            <li><a class="nav-link" href="#media">Media</a></li>
-            <li><a class="nav-link" href="#consulting">Industry</a></li>
-            <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="about" class="section-container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-description">
-                TAN Hong Ming serves as Assistant Dean (Digital Operations) at NUS Business School, National University of Singapore. In this role, he leads the planning, implementation, and optimisation of digital workflows across the School’s academic, administrative, and research functions, ensuring that digital initiatives are strategic, efficient, and well coordinated.
-            <br>
-            <br>
-                He is also the Deputy Head and Senior Lecturer in the <a href="https://bschool.nus.edu.sg/analytics-operations/" target="_blank">Department of Analytics and Operations</a> at the NUS Business School, National University of Singapore. In this capacity, he oversees departmental administration while teaching and coordinating courses across multiple programs, including the Executive MBA, MBA, MSc in Business Analytics (MSBA), Undergraduate (BBA), and MSc in Precision Health (YLL School of Medicine) programs. His contributions also extend to executive education, where he leads courses in AI such as AI for Leaders: Leveraging Data Analytics for Business, and Practical Decision Making Using Data Science.
-            <br>
-            <br>
-            Beyond teaching, Hong Ming is deeply involved in industry research, serving as the Principal Investigator for the project "Optimising Maritime Network Line Design using Reinforcement Learning" and co-leading initiatives such as the AI-led Smart Data Centre Management Application. He also contributes to the SIA Corp Lab and provides strategic AI leadership as the Lead AI Advisor for X0PA AI and Nexushomes. In all of these roles, he oversees and directs teams of data scientists, PhD students, research assistants, and interns, guiding them through various cutting-edge AI projects and research initiatives in collaboration with industry partners.
-            <br>
-            <br>
-            Hong Ming serves as the Chair of the Department Finance Committee and sits on the Department Teaching Committee. Additionally, he advises student-led organizations, including the Business Analytics Consulting Team and the NUS Private Equity Society.</p>
-        </section>
-        <section id="research" class="section-container">
-            <h2 class="section-title">Research</h2>
-            <p class="section-description">As a researcher, my work spans multiple disciplines, including operations, education, aviation, and mental health, where I apply AI to solve real-world challenges. These projects highlight my expertise in utilizing complex statistical methods and data-driven approaches to address pressing business and societal problems, with a strong focus on leveraging technology to tackle real issues.
-            <br>
-            <br>
-            A significant aspect of my research also involves economic and statistical modeling. I am a firm believer in the power of simple models to explain complex real-world phenomena. By distilling intricate systems into their core components, these models offer valuable insights that inform decision-making and strategy development.
-            <br>
-            <br>
-            In summary, my research is defined by its interdisciplinary reach and practical applications through industry collaboration, highlighting my focus on using data analytics and simplified models to address real-world problems effectively.</p>
-        </section>
-        <section id="publications" class="section-container">
-            <h2 class="section-title">Publications</h2>
-            <h3>Published Papers</h3>
-            <dl><dt><a href="https://openreview.net/pdf?id=N402RIxSbV">Conceptualising Case Formulation as a Neurosymbolic AI Framework for Mental Health</a></dt>
-                <dd>AI4X-Accelerate Conference 2026.
-                    <br>
-                    Tan, G. C. Y., Harshang, P. P., Xuan, E. Y. N., Huixian, S. L., & Tan, H. M. (2026)</dd>
-                <dt><a href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1463116/abstract">Evaluating the Relative Predictive Validity of Measures of Self-Referential Processing for Depressive Symptom Severity</a></dt>
-                <dd>Frontiers in Psychiatry 15: 1463116.
-                    <br>
-                    Tan, E. S. E., Tan, H. M., Fong, K. V., Ho, C. W., Teo, C., Tan, Z. Y., ... & Tan, G. C. Y. (2025)
-                </dd>
-                <dt><a href="https://arxiv.org/abs/2402.09288">EcoVal: An Efficient Data Valuation Framework for Machine Learning</a></dt>
-                <dd>Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (pp. 2866-2875)
-                    <br>
-                    Tarun, A., Chundawat, V., Mandal, M., Tan, H. M., Chen, B., & Kankanhalli, M. (2024, August)</dd>
-                <dt><a href="https://www.frontiersin.org/articles/10.3389/fninf.2023.1244347/full">Transdiagnostic Clustering of Self-Schema from Self-Referential Judgements identifies subtypes of healthy Personality and Depression</a></dt>
-                <dd>Frontiers in Neuroinformatics, 17, 1244347.
-                    <br>
-                    Tan, G. C. Y., Wang, Z., Tan, E. S. E., Ong, R. J. M., Ooi, P. E., Lee, D., ... & Keppo, J. (2024)
-                </dd>
-                <dt><a href="https://www.frontiersin.org/articles/10.3389/fninf.2023.1244336/abstract">Comparing feature selection and machine learning approaches for predicting CYP2D6 methylation from genetic variation</a></dt>
-                <dd>Frontiers in Neuroinformatics, 17, 1244336.
-                    <br>
-                    Fong, W. J., Tan, H. M., Garg, R., Teh, A. L., Pan, H., Gupta, V., ... & Tan, G. C. Y. (2024)
-                </dd>
-              <dt><a href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a></dt>
-              <dd>Journal of Global Antimicrobial Resistance, Volume 33, 2023, Pages 368-375, ISSN 2213-7165,
-                  <br>
-                  Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen
-              </dd>
-              <dt><a href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a> </dt>
-              <dd>CHANCE, 33(1), 10-15.
-                  <br>
-                  Zaman, Z., &amp; Tan, H. M. (2020). 
-              </dd>
-            </dl>
-            <h3>Published Cases, Chapters, Books</h3>
-            <dl>
-                <dt><a href="https://link.springer.com/chapter/10.1007/978-3-032-12362-6_5">Personalised Profiling in Mental Health: A CAT-Based Approach for Maternal Well-being and Mood Disorders</a></dt>
-                <dd> In: Zhang, J., et al. Advances in Artificial Intelligence: Efficiency, Reliability, and Innovations in Machine Learning to Healthcare, and Blockchain. Adaptation, Learning, and Optimization, vol 28. Springer, Cham.
-                    <br>
-                    Tan, G.CY. et al. (2026)
-                </dd>
-                <dt><a href="https://link.springer.com/chapter/10.1007/978-3-032-12362-6_6">Foundational Models for Personalised Mental Health</a></dt>
-                <dd>In: Zhang, J., et al. Advances in Artificial Intelligence: Efficiency, Reliability, and Innovations in Machine Learning to Healthcare, and Blockchain. Adaptation, Learning, and Optimization, vol 28. Springer, Cham.
-                    <br>
-                    Tan, G.CY. et al. (2026)
-                </dd>
-                <dt><a href="https://www.iveypublishing.ca/s/product/murata-electronics-singapore-driving-talent-management-with-data/01tOF00000Bvdr7YAB">Murata Electronics Singapore: Driving Talent Management with Data</a></dt>
-                <dd>Ivey Publishing
-                    <br>
-                    Ella Keppo, Hong Ming Tan (2026).
-                </dd>
-                <dt>Data-Driven Decision Making: Excel in Business Analytics</dt>
-                <dd>Pearson Education
-                    <br>
-                    Hong Ming Tan, Yi-Liang Tung, Qizhang Liu (2025).
-                </dd>
-                <dt><a href="https://www.iveypublishing.ca/s/product/toward-zero-waste-recycleright-at-the-national-university-of-singapore/01tOF000006P5KQYA0">Toward Zero Waste: RecycleRight at the National University of Singapore</a></dt>
-                <dd>Ivey Publishing
-                    <br>
-                    Hong Ming Tan, Karl Ann Too, Diyang Lin, Joel Goh (2024).
-                    <br>
-                    <a href="https://www.linkedin.com/posts/ivey-publishing_iveypublishingcases-wrapped2024-activity-7279149170500759553-7KjL/">One of four Ivey Publishing must-read cases in 2024</a>
-                </dd>
-              <dt><a href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a></dt>
-              <dd>In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.
-                  <br>
-              Tan, H. M. (2023).</dd>
-            </dl>
-          
-          
-            <h3>Working Papers</h3>
-            <dl>
-                <dt><a href="https://ssrn.com/abstract=3141043">Risky Investments under Static and Dynamic Information Acquisition</a> (Sep 9, 2022)</dt>
-                <dd>Jussi Keppo, Tianyue Shao, Hong Ming Tan, and Zhou Chao </dd>
-                <dt>Fare Ladder Optimization: Airline Revenue Management in Volatile Environment</dt>
-                <dd>2023 CSAMSE Practice Award Third Place <br> Reject and Resubmit: Operations Research, Changchun Liu, Hong Ming Tan, Chung-Piaw Teo, Gang Guo, Yan Chen, Tim Lee</dd>
-                <dt>Flying High with Improved Data: How an Instructor Training Workshop Boosting Pilot Competency Assessment</dt>
-                <dd>Qingyin Ge, Jussi Keppo, Chuan Hoo Tan, Hong Ming Tan</dd>
-                <dt>Dynamic Pricing in the Airline Industry: Theory and Practice</dt>
-                <dd>Chung Khim Lae, Hong Ming Tan, Bar Light, Jussi Keppo</dd>
-                <dt>Data Science Approach to Process Control</dt>
-                <dd>Yuda Ho, Jussi Keppo, Ek Hong Lim, Herman Tan, and Hong Ming Tan</dd>
-                <dt>Analytic Framework for Detecting Emerging Product Defects through Active Learning</dt>
-                <dd>Lu, B., Dong, Y., Ying, Y., Tan, H. and Keppo, J.</dd>
-                <dt><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5118887">Optimal Sequence of Tests</a></dt>
-                <dd>Jussi Keppo, Ek Hong Lim, and Hong Ming Tan</dd>
-                <dt>Designing Assignment Mechanisms for Human Capital Development: Evidence from Algorithmic Mentor Matching</dt>
-                <dd>Jussi Keppo, Hong Ming Tan, and Meixi Wu</dd>
-                <dt>Mechanism Design for Incentivizing User Feedback for Large Language Models</dt>
-                <dd>Zhonglin Liu, Jussi Keppo, Murari Mandal, and Hong Ming Tan</dd>
-                <dt><a href="https://europepmc.org/article/ppr/ppr880787">Utilising Computerised Adaptive Testing to Alleviate Respondent Burden in Maternal Stress Assessment</a></dt>
-                <dd>Teo, C., Rachelle, C. H. T., Garg, R., Yoong, M. R. Y., Tan, E. S. E., Rane, N., ... & Tan, G. C. (2024)</dd>
-                <dt><a href="https://europepmc.org/article/ppr/ppr880800">Foundational Models for Personalised Mental Health.</a></dt>
-                <dd>Tan, G. C., Wang, B. Z., Tan, H. M., Pe, L. S., Yuen, A. K. P., Mu, Y., ... & Goh, H. L. (2024). </dd>
-                <dt><a href="https://europepmc.org/article/ppr/ppr880085">Personalised Profiling in Mental Health: A CAT-based Approach for Maternal Well-being and Mood Disorders.</a></dt>
-                <dd>Tan, G. C., Tan, H. M., Rane, N., Tan, E. S. E., Hashim, N., Teo, C., ... & Huixian, S. L. (2024). </dd>
-                <dt><a href="https://arxiv.org/abs/2505.19165">OrgAccess: A Benchmark for Role Based Access Control in Organization Scale LLMs</a></dt>
-                <dd>Sanyal, D., Maharana, U., Sinha, Y., Tan, H. M., Karande, S., Kankanhalli, M., & Mandal, M. (2025)</dd>
-            </dl>
-          
-          
-            <h3>Work-In-Progress</h3>
-              <dl>
-                <dt>Learning and Earning with Offline Data</dt>
-                <dd>Jussi Keppo, Hong Ming Tan, Chung-Piaw Teo, and Minglong Zhou</dd>
-              </dl>
-          
-          
-              <h3>Errata</h3>
-              <dl>
-                  <dt>Owen, D. B. (1980). A table of normal integrals: A table. Communications in Statistics-Simulation and Computation, 9(4), 389-419.</dt>
-                  <dd>While trying to solve some integrals, I found an error with the integral 110 in TABLE I (page 9). 
-                      <br> 
-                      The integral is missing a “b” in the term G(x sqrt(1+b^2) + a/ sqrt(1+b^2)). <br>
-                      It should be G(x sqrt(1+b^2) + ab/ sqrt(1+b^2)). </dd>
-              </dl>
-          
-            
-        </section>
-        <section id="teaching" class="section-container">
-            <h2 class="section-title">Teaching</h2>
-            <!-- <p class="section-description">Details about your teaching experience and philosophy.</p> -->
-            <h3>Courses</h3>
-            <dl>
-                <dt>BME5202 Opportunities in AI</dt>
-                <dd>24/25 Sem 1</dd>
-                <dt>BMA5278 Business Insights through Industry Analysis</dt>
-                <dd>24/25 Sem 1</dd>
-                <dt>PHM5014 Causal Inference in Precision Medicine</dt>
-                <dd>24/25 Sem 1</dd>
-                <dt>PHM5006 Ethics, Regulation and Managerial Economics In Precision Medicine</dt>
-                <dd>23/24 Sem 2, 25/26 Sem 1</dd>
-                <dt>DBA3803 Predictive Analytics in Business</dt>
-                <dd>23/24 Sem 2, 24/25 Sem 1, 24/25 Sem 2, 25/26 Sem 1</dd>
-                <dt>Economics Bootcamp for MSBA</dt>
-                <dd>2024, 2025</dd>
-                <dt>Statistics Primer Workshops for MSc</dt>
-                <dd>2024, 2025</dd>
-                <dt>AI in Talent Management and Organizational Design</dt>
-                <dd>2026</dd>
-                <dt>AI For Leaders: Leveraging Data Analytics For Business</dt>
-                <dd>2023, 2024, 2025, 2026</dd>
-                <dt>Practical Decision Making Using Data Science</dt>
-                <dd>2022</dd>
-                <dt>Leading with Big Data Analytics and Machine Learning</dt>
-                <dd>2020, 2021, 2022, 2023</dd>
-                <dt>General Management Programme</dt>
-                <dd>2022, 2024</dd>
-                <dt>BMA5275 Analytics in Managerial Economics</dt>
-                <dd>22/23 Sem 1, 24/25 Sem 2, 25/26 Sem 1</dd>
-                <dt>BME5201 Leading With Analytics</dt>
-                <dd>22/23 Sem 1, 23/24 Sem 1</dd>
-                <dt>DBA5101 Analytics in Managerial Economics</dt>
-                <dd>18/19 Sem 1, 19/20 Sem 1, 20/21 Sem 1</dd>
-                <dt>DAO1704 Decision Analytics Using Spreadsheets</dt>
-                <dd>18/19 Sem 2, 20/21 Sem 2, 21/22 Sem 1, 21/22 Sem 2, 22/23 Sem 1, 22/23 Sem 2, 24/25 Sem 2</dd>
-                <dt>MA1101R Linear Algebra I</dt>
-                <dd>16/17 Sem 2</dd>
-                <dt>MA1505 Mathematics I</dt>
-                <dd>16/17 Sem 1</dd>
 
-            </dl>
-            <h3>Awards</h3>
-            <dl>
-                <dt><a href="docs/MBA teaching Excellence 2425.pdf">Excellence in MBA Teaching AY24/25</a> <br>(Top 3 Teaching Rating for Electives)</dt>
-                <dd>NUS Business School</dd>
-                <dt>Annual Teaching Excellence Award 2025</dt>
-                <dd>NUS</dd>
-                <dt>Teaching Excellence Award 2024</dt>
-                <dd>NUS Business School</dd>
-                <dt>Teaching Excellence Award 2023</dt>
-                <dd>NUS Business School</dd>
-              <dt>Outstanding Graduate Student Teaching Award</dt>
-              <dd>2018/2019, Department of Analytics and Operations, NUS Business School</dd>
-              <dt>Letter of Commendation for Graduate Tutor</dt>
-              <dd>2016/2017, Department of Mathematics, NUS</dd>
-            </dl>
+    <div class="hero" id="top">
+        <div class="hero-text">
+            <p class="hero-kicker">NUS Business School</p>
+            <h1>TAN Hong Ming</h1>
+            <p class="hero-roles">I'm a <span class="typed-text" data-typed-items="Assistant Dean, Deputy Head, Senior Lecturer"></span><span class="cursor">&nbsp;</span></p>
+            <div class="hero-links">
+                <a href="docs/CV Tan Hong Ming.pdf" target="_blank" class="primary">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+                    Curriculum Vitae
+                </a>
+                <a href="https://www.linkedin.com/in/7hm/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/tanhm07" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    GitHub
+                </a>
             </div>
-            <div class="row" data-aos="fade-right">
-            <h3>Pedagogy</h3>
-            <dl>
-                <dt>Teaching with Cases: Engage, Energize, and Challenge Your Students</dt>
-                <dd>2023, Harvard Business Publishing Education</dd>
-                <dt><a href="http://cdtl.nus.edu.sg/ta-prog/" target="_blank">Training Programme for Teaching Assistants</a></dt>
-                <dd>2016, NUS</dd>
-                <dt><a href="http://www.tp.edu.sg/centres/learning-academy/programmes" target="_blank">Teaching in Higher Education Certificate (THEC)</a></dt>
-                <dd>2014, Temasek Polytechnic</dd>
-            </dl>
+        </div>
+        <div class="hero-photo">
+            <img src="assets/img/profile-img2.jpg" alt="Portrait of Tan Hong Ming">
+        </div>
+    </div>
+
+    <main>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="prose">
+                <p>TAN Hong Ming serves as Assistant Dean (Digital Operations) at NUS Business School, National University of Singapore. In this role, he leads the planning, implementation, and optimisation of digital workflows across the School&rsquo;s academic, administrative, and research functions, ensuring that digital initiatives are strategic, efficient, and well coordinated.</p>
+                <p>He is also the Deputy Head and Senior Lecturer in the <a href="https://bschool.nus.edu.sg/analytics-operations/" target="_blank" rel="noopener">Department of Analytics and Operations</a> at the NUS Business School, National University of Singapore. In this capacity, he oversees departmental administration while teaching and coordinating courses across multiple programs, including the Executive MBA, MBA, MSc in Business Analytics (MSBA), Undergraduate (BBA), and MSc in Precision Health (YLL School of Medicine) programs. His contributions also extend to executive education, where he leads courses in AI such as AI for Leaders: Leveraging Data Analytics for Business, and Practical Decision Making Using Data Science.</p>
+                <p>Beyond teaching, Hong Ming is deeply involved in industry research, serving as the Principal Investigator for the project "Optimising Maritime Network Line Design using Reinforcement Learning" and co-leading initiatives such as the AI-led Smart Data Centre Management Application. He also contributes to the SIA Corp Lab and provides strategic AI leadership as the Lead AI Advisor for X0PA AI and Nexushomes. In all of these roles, he oversees and directs teams of data scientists, PhD students, research assistants, and interns, guiding them through various cutting-edge AI projects and research initiatives in collaboration with industry partners.</p>
+                <p>Hong Ming serves as the Chair of the Department Finance Committee and sits on the Department Teaching Committee. Additionally, he advises student-led organizations, including the Business Analytics Consulting Team and the NUS Private Equity Society.</p>
+            </div>
         </section>
-        <section id="media" class="section-container">
-            <h2 class="section-title">Media Mentions</h2>
-            <!-- <p class="section-description">Teaching connections, Invited Speaker, EE.</p> -->
-            <ul>
-                <li><a href="https://www.culture-hive.com/inside-the-hive/why-your-digital-transformation-might-be-missing-the-point">Why Your Digital Transformation Might Be Missing The Point</a> - July 18, 2025, CultureHive</li>
-                <li><a href="https://www.linkedin.com/posts/nus-business-school_nusbizschool-ai-sustainability-ugcPost-7336284348083515392-Jd3X/">AI and sustainability will define the future of business.</a> - July, 2025, NUS Business School</li>
-                <li><a href="https://www.businessinsider.com/job-interview-glitching-ai-bot-tiktok-viral-recruitment-2025-5">You're probably not going to speak to a glitching AI bot on your next job interview</a> - May 17, 2025, Business Insider</li>
-                <li><a href="https://bizbeat.nus.edu.sg/faculty/i-believe-i-can-fly-like-jordan/">I Believe I Can Fly….. Like Jordan</a> - Jun 19, 2024, BIZBeat, NUS</li>
-                <li>Guest Speaker - Jun 20, 2023, APSCo Asia</li>
-                <li><a href="https://blog.nus.edu.sg/teachingconnections/2023/04/26/designing-fair-quizzes-with-a-question-pool/">Designing Fair Quizzes with a Question Pool</a> - Apr 26, 2023, Teaching Connections, NUS.</li>
-                <li><a href="https://executivecourses.com/articles/executive-education-courses-in-data-analytics">Executive Education Courses in Data Analytics</a> - Sep 10, 2021, Executive Courses</li>
-                <li><a href="https://www.fool.com/investing/2019/12/31/hockey-and-risk-taking-with-zia-zaman.aspx">Hockey and Risk-Taking With Zia Zaman</a> - Dec 31, 2019, The Motley Fool</li>
+
+        <section id="research">
+            <h2 class="section-title">Research</h2>
+            <div class="prose">
+                <p>As a researcher, my work spans multiple disciplines, including operations, education, aviation, and mental health, where I apply AI to solve real-world challenges. These projects highlight my expertise in utilizing complex statistical methods and data-driven approaches to address pressing business and societal problems, with a strong focus on leveraging technology to tackle real issues.</p>
+                <p>A significant aspect of my research also involves economic and statistical modeling. I am a firm believer in the power of simple models to explain complex real-world phenomena. By distilling intricate systems into their core components, these models offer valuable insights that inform decision-making and strategy development.</p>
+                <p>In summary, my research is defined by its interdisciplinary reach and practical applications through industry collaboration, highlighting my focus on using data analytics and simplified models to address real-world problems effectively.</p>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2 class="section-title">Publications</h2>
+
+            <h3>Published Papers</h3>
+            <ul class="pub-list">
+                <li>
+                    <a class="pub-title" href="https://openreview.net/pdf?id=N402RIxSbV">Conceptualising Case Formulation as a Neurosymbolic AI Framework for Mental Health</a>
+                    <span class="pub-venue">AI4X-Accelerate Conference 2026.</span>
+                    <span class="pub-authors">Tan, G. C. Y., Harshang, P. P., Xuan, E. Y. N., Huixian, S. L., &amp; Tan, H. M. (2026)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1463116/abstract">Evaluating the Relative Predictive Validity of Measures of Self-Referential Processing for Depressive Symptom Severity</a>
+                    <span class="pub-venue">Frontiers in Psychiatry 15: 1463116.</span>
+                    <span class="pub-authors">Tan, E. S. E., Tan, H. M., Fong, K. V., Ho, C. W., Teo, C., Tan, Z. Y., ... &amp; Tan, G. C. Y. (2025)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://arxiv.org/abs/2402.09288">EcoVal: An Efficient Data Valuation Framework for Machine Learning</a>
+                    <span class="pub-venue">Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (pp. 2866-2875)</span>
+                    <span class="pub-authors">Tarun, A., Chundawat, V., Mandal, M., Tan, H. M., Chen, B., &amp; Kankanhalli, M. (2024, August)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.frontiersin.org/articles/10.3389/fninf.2023.1244347/full">Transdiagnostic Clustering of Self-Schema from Self-Referential Judgements identifies subtypes of healthy Personality and Depression</a>
+                    <span class="pub-venue">Frontiers in Neuroinformatics, 17, 1244347.</span>
+                    <span class="pub-authors">Tan, G. C. Y., Wang, Z., Tan, E. S. E., Ong, R. J. M., Ooi, P. E., Lee, D., ... &amp; Keppo, J. (2024)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.frontiersin.org/articles/10.3389/fninf.2023.1244336/abstract">Comparing feature selection and machine learning approaches for predicting CYP2D6 methylation from genetic variation</a>
+                    <span class="pub-venue">Frontiers in Neuroinformatics, 17, 1244336.</span>
+                    <span class="pub-authors">Fong, W. J., Tan, H. M., Garg, R., Teh, A. L., Pan, H., Gupta, V., ... &amp; Tan, G. C. Y. (2024)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S2213716523000498?via%3Dihub">Evaluation of a new antiresistic strategy to manage antibiotic resistance</a>
+                    <span class="pub-venue">Journal of Global Antimicrobial Resistance, Volume 33, 2023, Pages 368-375, ISSN 2213-7165</span>
+                    <span class="pub-authors">Hong Ming Tan, Ambika C. Lall, Jussi Keppo, Swaine L. Chen</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.tandfonline.com/doi/full/10.1080/09332480.2020.1726113">A Modification to Pull the Goalie that Takes the State of Play into Account: Coach Markov Returns.</a>
+                    <span class="pub-venue">CHANCE, 33(1), 10-15.</span>
+                    <span class="pub-authors">Zaman, Z., &amp; Tan, H. M. (2020).</span>
+                </li>
+            </ul>
+
+            <h3>Published Cases, Chapters, Books</h3>
+            <ul class="pub-list">
+                <li>
+                    <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-032-12362-6_5">Personalised Profiling in Mental Health: A CAT-Based Approach for Maternal Well-being and Mood Disorders</a>
+                    <span class="pub-venue">In: Zhang, J., et al. Advances in Artificial Intelligence: Efficiency, Reliability, and Innovations in Machine Learning to Healthcare, and Blockchain. Adaptation, Learning, and Optimization, vol 28. Springer, Cham.</span>
+                    <span class="pub-authors">Tan, G.CY. et al. (2026)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-032-12362-6_6">Foundational Models for Personalised Mental Health</a>
+                    <span class="pub-venue">In: Zhang, J., et al. Advances in Artificial Intelligence: Efficiency, Reliability, and Innovations in Machine Learning to Healthcare, and Blockchain. Adaptation, Learning, and Optimization, vol 28. Springer, Cham.</span>
+                    <span class="pub-authors">Tan, G.CY. et al. (2026)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.iveypublishing.ca/s/product/murata-electronics-singapore-driving-talent-management-with-data/01tOF00000Bvdr7YAB">Murata Electronics Singapore: Driving Talent Management with Data</a>
+                    <span class="pub-venue">Ivey Publishing</span>
+                    <span class="pub-authors">Ella Keppo, Hong Ming Tan (2026).</span>
+                </li>
+                <li>
+                    <span class="pub-title">Data-Driven Decision Making: Excel in Business Analytics</span>
+                    <span class="pub-venue">Pearson Education</span>
+                    <span class="pub-authors">Hong Ming Tan, Yi-Liang Tung, Qizhang Liu (2025).</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://www.iveypublishing.ca/s/product/toward-zero-waste-recycleright-at-the-national-university-of-singapore/01tOF000006P5KQYA0">Toward Zero Waste: RecycleRight at the National University of Singapore</a>
+                    <span class="pub-venue">Ivey Publishing</span>
+                    <span class="pub-authors">Hong Ming Tan, Karl Ann Too, Diyang Lin, Joel Goh (2024).</span>
+                    <a class="pub-note" href="https://www.linkedin.com/posts/ivey-publishing_iveypublishingcases-wrapped2024-activity-7279149170500759553-7KjL/">One of four Ivey Publishing must-read cases in 2024</a>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-981-19-5135-0_2">The Case Method and Technology: Applying the Seven Principles for Good Practice in Undergraduate Education in a Business School Course.</a>
+                    <span class="pub-venue">In Designing Technology-Mediated Case Learning in Higher Education: A Global Perspective (pp. 17-31). Singapore: Springer Nature Singapore.</span>
+                    <span class="pub-authors">Tan, H. M. (2023).</span>
+                </li>
+            </ul>
+
+            <h3>Working Papers</h3>
+            <ul class="pub-list">
+                <li>
+                    <a class="pub-title" href="https://ssrn.com/abstract=3141043">Risky Investments under Static and Dynamic Information Acquisition</a> <span class="pub-venue">(Sep 9, 2022)</span>
+                    <span class="pub-authors">Jussi Keppo, Tianyue Shao, Hong Ming Tan, and Zhou Chao</span>
+                </li>
+                <li>
+                    <span class="pub-title">Fare Ladder Optimization: Airline Revenue Management in Volatile Environment</span>
+                    <span class="pub-venue">2023 CSAMSE Practice Award Third Place &middot; Reject and Resubmit: Operations Research</span>
+                    <span class="pub-authors">Changchun Liu, Hong Ming Tan, Chung-Piaw Teo, Gang Guo, Yan Chen, Tim Lee</span>
+                </li>
+                <li>
+                    <span class="pub-title">Flying High with Improved Data: How an Instructor Training Workshop Boosting Pilot Competency Assessment</span>
+                    <span class="pub-authors">Qingyin Ge, Jussi Keppo, Chuan Hoo Tan, Hong Ming Tan</span>
+                </li>
+                <li>
+                    <span class="pub-title">Dynamic Pricing in the Airline Industry: Theory and Practice</span>
+                    <span class="pub-authors">Chung Khim Lae, Hong Ming Tan, Bar Light, Jussi Keppo</span>
+                </li>
+                <li>
+                    <span class="pub-title">Data Science Approach to Process Control</span>
+                    <span class="pub-authors">Yuda Ho, Jussi Keppo, Ek Hong Lim, Herman Tan, and Hong Ming Tan</span>
+                </li>
+                <li>
+                    <span class="pub-title">Analytic Framework for Detecting Emerging Product Defects through Active Learning</span>
+                    <span class="pub-authors">Lu, B., Dong, Y., Ying, Y., Tan, H. and Keppo, J.</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5118887">Optimal Sequence of Tests</a>
+                    <span class="pub-authors">Jussi Keppo, Ek Hong Lim, and Hong Ming Tan</span>
+                </li>
+                <li>
+                    <span class="pub-title">Designing Assignment Mechanisms for Human Capital Development: Evidence from Algorithmic Mentor Matching</span>
+                    <span class="pub-authors">Jussi Keppo, Hong Ming Tan, and Meixi Wu</span>
+                </li>
+                <li>
+                    <span class="pub-title">Mechanism Design for Incentivizing User Feedback for Large Language Models</span>
+                    <span class="pub-authors">Zhonglin Liu, Jussi Keppo, Murari Mandal, and Hong Ming Tan</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://europepmc.org/article/ppr/ppr880787">Utilising Computerised Adaptive Testing to Alleviate Respondent Burden in Maternal Stress Assessment</a>
+                    <span class="pub-authors">Teo, C., Rachelle, C. H. T., Garg, R., Yoong, M. R. Y., Tan, E. S. E., Rane, N., ... &amp; Tan, G. C. (2024)</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://europepmc.org/article/ppr/ppr880800">Foundational Models for Personalised Mental Health.</a>
+                    <span class="pub-authors">Tan, G. C., Wang, B. Z., Tan, H. M., Pe, L. S., Yuen, A. K. P., Mu, Y., ... &amp; Goh, H. L. (2024).</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://europepmc.org/article/ppr/ppr880085">Personalised Profiling in Mental Health: A CAT-based Approach for Maternal Well-being and Mood Disorders.</a>
+                    <span class="pub-authors">Tan, G. C., Tan, H. M., Rane, N., Tan, E. S. E., Hashim, N., Teo, C., ... &amp; Huixian, S. L. (2024).</span>
+                </li>
+                <li>
+                    <a class="pub-title" href="https://arxiv.org/abs/2505.19165">OrgAccess: A Benchmark for Role Based Access Control in Organization Scale LLMs</a>
+                    <span class="pub-authors">Sanyal, D., Maharana, U., Sinha, Y., Tan, H. M., Karande, S., Kankanhalli, M., &amp; Mandal, M. (2025)</span>
+                </li>
+            </ul>
+
+            <h3>Work-In-Progress</h3>
+            <ul class="pub-list">
+                <li>
+                    <span class="pub-title">Learning and Earning with Offline Data</span>
+                    <span class="pub-authors">Jussi Keppo, Hong Ming Tan, Chung-Piaw Teo, and Minglong Zhou</span>
+                </li>
+            </ul>
+
+            <h3>Errata</h3>
+            <ul class="pub-list">
+                <li>
+                    <span class="pub-title">Owen, D. B. (1980). A table of normal integrals: A table. Communications in Statistics-Simulation and Computation, 9(4), 389-419.</span>
+                    <span class="pub-authors">While trying to solve some integrals, I found an error with the integral 110 in TABLE I (page 9). The integral is missing a &ldquo;b&rdquo; in the term G(x sqrt(1+b&sup2;) + a/ sqrt(1+b&sup2;)). It should be G(x sqrt(1+b&sup2;) + ab/ sqrt(1+b&sup2;)).</span>
+                </li>
             </ul>
         </section>
-        <section id="consulting" class="section-container">
+
+        <section id="teaching">
+            <h2 class="section-title">Teaching</h2>
+
+            <h3>Courses</h3>
+            <ul class="row-list">
+                <li><span class="item-name">BME5202 Opportunities in AI</span><span class="item-meta">24/25 Sem 1</span></li>
+                <li><span class="item-name">BMA5278 Business Insights through Industry Analysis</span><span class="item-meta">24/25 Sem 1</span></li>
+                <li><span class="item-name">PHM5014 Causal Inference in Precision Medicine</span><span class="item-meta">24/25 Sem 1</span></li>
+                <li><span class="item-name">PHM5006 Ethics, Regulation and Managerial Economics In Precision Medicine</span><span class="item-meta">23/24 Sem 2, 25/26 Sem 1</span></li>
+                <li><span class="item-name">DBA3803 Predictive Analytics in Business</span><span class="item-meta">23/24 Sem 2, 24/25 Sem 1, 24/25 Sem 2, 25/26 Sem 1</span></li>
+                <li><span class="item-name">Economics Bootcamp for MSBA</span><span class="item-meta">2024, 2025</span></li>
+                <li><span class="item-name">Statistics Primer Workshops for MSc</span><span class="item-meta">2024, 2025</span></li>
+                <li><span class="item-name">AI in Talent Management and Organizational Design</span><span class="item-meta">2026</span></li>
+                <li><span class="item-name">AI For Leaders: Leveraging Data Analytics For Business</span><span class="item-meta">2023, 2024, 2025, 2026</span></li>
+                <li><span class="item-name">Practical Decision Making Using Data Science</span><span class="item-meta">2022</span></li>
+                <li><span class="item-name">Leading with Big Data Analytics and Machine Learning</span><span class="item-meta">2020, 2021, 2022, 2023</span></li>
+                <li><span class="item-name">General Management Programme</span><span class="item-meta">2022, 2024</span></li>
+                <li><span class="item-name">BMA5275 Analytics in Managerial Economics</span><span class="item-meta">22/23 Sem 1, 24/25 Sem 2, 25/26 Sem 1</span></li>
+                <li><span class="item-name">BME5201 Leading With Analytics</span><span class="item-meta">22/23 Sem 1, 23/24 Sem 1</span></li>
+                <li><span class="item-name">DBA5101 Analytics in Managerial Economics</span><span class="item-meta">18/19 Sem 1, 19/20 Sem 1, 20/21 Sem 1</span></li>
+                <li><span class="item-name">DAO1704 Decision Analytics Using Spreadsheets</span><span class="item-meta">18/19 Sem 2, 20/21 Sem 2, 21/22 Sem 1, 21/22 Sem 2, 22/23 Sem 1, 22/23 Sem 2, 24/25 Sem 2</span></li>
+                <li><span class="item-name">MA1101R Linear Algebra I</span><span class="item-meta">16/17 Sem 2</span></li>
+                <li><span class="item-name">MA1505 Mathematics I</span><span class="item-meta">16/17 Sem 1</span></li>
+            </ul>
+
+            <h3>Awards</h3>
+            <ul class="row-list">
+                <li><span class="item-name"><a href="docs/MBA teaching Excellence 2425.pdf">Excellence in MBA Teaching AY24/25</a> (Top 3 Teaching Rating for Electives)</span><span class="item-meta">NUS Business School</span></li>
+                <li><span class="item-name">Annual Teaching Excellence Award 2025</span><span class="item-meta">NUS</span></li>
+                <li><span class="item-name">Teaching Excellence Award 2024</span><span class="item-meta">NUS Business School</span></li>
+                <li><span class="item-name">Teaching Excellence Award 2023</span><span class="item-meta">NUS Business School</span></li>
+                <li><span class="item-name">Outstanding Graduate Student Teaching Award</span><span class="item-meta">2018/2019, Department of Analytics and Operations, NUS Business School</span></li>
+                <li><span class="item-name">Letter of Commendation for Graduate Tutor</span><span class="item-meta">2016/2017, Department of Mathematics, NUS</span></li>
+            </ul>
+
+            <h3>Pedagogy</h3>
+            <ul class="row-list">
+                <li><span class="item-name">Teaching with Cases: Engage, Energize, and Challenge Your Students</span><span class="item-meta">2023, Harvard Business Publishing Education</span></li>
+                <li><span class="item-name"><a href="http://cdtl.nus.edu.sg/ta-prog/" target="_blank" rel="noopener">Training Programme for Teaching Assistants</a></span><span class="item-meta">2016, NUS</span></li>
+                <li><span class="item-name"><a href="http://www.tp.edu.sg/centres/learning-academy/programmes" target="_blank" rel="noopener">Teaching in Higher Education Certificate (THEC)</a></span><span class="item-meta">2014, Temasek Polytechnic</span></li>
+            </ul>
+        </section>
+
+        <section id="media">
+            <h2 class="section-title">Media Mentions</h2>
+            <ul class="media-list">
+                <li>
+                    <a href="https://www.culture-hive.com/inside-the-hive/why-your-digital-transformation-might-be-missing-the-point">Why Your Digital Transformation Might Be Missing The Point</a>
+                    <span class="media-meta">July 18, 2025 &middot; CultureHive</span>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/posts/nus-business-school_nusbizschool-ai-sustainability-ugcPost-7336284348083515392-Jd3X/">AI and sustainability will define the future of business.</a>
+                    <span class="media-meta">July, 2025 &middot; NUS Business School</span>
+                </li>
+                <li>
+                    <a href="https://www.businessinsider.com/job-interview-glitching-ai-bot-tiktok-viral-recruitment-2025-5">You're probably not going to speak to a glitching AI bot on your next job interview</a>
+                    <span class="media-meta">May 17, 2025 &middot; Business Insider</span>
+                </li>
+                <li>
+                    <a href="https://bizbeat.nus.edu.sg/faculty/i-believe-i-can-fly-like-jordan/">I Believe I Can Fly&hellip;.. Like Jordan</a>
+                    <span class="media-meta">Jun 19, 2024 &middot; BIZBeat, NUS</span>
+                </li>
+                <li>
+                    Guest Speaker
+                    <span class="media-meta">Jun 20, 2023 &middot; APSCo Asia</span>
+                </li>
+                <li>
+                    <a href="https://blog.nus.edu.sg/teachingconnections/2023/04/26/designing-fair-quizzes-with-a-question-pool/">Designing Fair Quizzes with a Question Pool</a>
+                    <span class="media-meta">Apr 26, 2023 &middot; Teaching Connections, NUS</span>
+                </li>
+                <li>
+                    <a href="https://executivecourses.com/articles/executive-education-courses-in-data-analytics">Executive Education Courses in Data Analytics</a>
+                    <span class="media-meta">Sep 10, 2021 &middot; Executive Courses</span>
+                </li>
+                <li>
+                    <a href="https://www.fool.com/investing/2019/12/31/hockey-and-risk-taking-with-zia-zaman.aspx">Hockey and Risk-Taking With Zia Zaman</a>
+                    <span class="media-meta">Dec 31, 2019 &middot; The Motley Fool</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="consulting">
             <h2 class="section-title">Consulting and Industry Projects</h2>
-            <!-- <p class="section-description">Consulting and Industry Projects</p> -->
-            My academic and professional endeavors have given me a unique perspective on the intersection of academia and industry, particularly in the fields of Analytics, Operations Research, and AI. I lead teams of data scientists and PhD students, consult for companies on AI and data science applications
-            <ul>
+            <div class="prose">
+                <p>My academic and professional endeavors have given me a unique perspective on the intersection of academia and industry, particularly in the fields of Analytics, Operations Research, and AI. I lead teams of data scientists and PhD students, consult for companies on AI and data science applications.</p>
+            </div>
+            <ul class="chips">
                 <li>Murata Singapore</li>
                 <li>CMA CGA</li>
                 <li>ResMed</li>
                 <li>Institute of Mental Health</li>
-                <li>Kulicke & Soffa</li>
+                <li>Kulicke &amp; Soffa</li>
                 <li>LINGJACK</li>
                 <li>NCS</li>
                 <li>Singapore Airlines</li>
@@ -584,58 +820,89 @@
                 <li>Nexus Homes</li>
             </ul>
         </section>
-        <section id="contact" class="section-container">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-description"><strong>Office:</strong> Mochtar Raidy Building, BIZ1-08-72, 15 Kent Ridge Drive, Singapore 119245
-                        <br> <strong>Email:</strong> thm at nus dot edu dot sg
-                </p>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-card">
+                <p><strong>Office:</strong> Mochtar Raidy Building, BIZ1-08-72, 15 Kent Ridge Drive, Singapore 119245</p>
+                <p><strong>Email:</strong> thm at nus dot edu dot sg</p>
+            </div>
         </section>
     </main>
-    <div class="cta-section">
-        <h2 class="cta-title">Ready to Start a Project?</h2>
-        <p class="cta-description">Contact me to discuss your project requirements and goals.</p>
-        <a href="mailto:thm@nus.edu.sg" class="cta-button">Get in Touch</a>
+
+    <div class="cta">
+        <h2>Ready to Start a Project?</h2>
+        <p>Contact me to discuss your project requirements and goals.</p>
+        <a href="mailto:thm@nus.edu.sg">Get in Touch</a>
     </div>
 
-    <footer class="footer">
-        <p  style="color: #ffffff;">© 2023 Tan Hong Ming. All rights reserved. 
-            <!--  | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>-->
-        </p>
+    <footer>
+        <p>&copy; Tan Hong Ming. All rights reserved.</p>
     </footer>
 
     <script>
-        // Smooth scroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('.nav-link');
-            for (const link of links) {
-                link.addEventListener('click', smoothScroll);
+        // Typed hero roles (replaces typed.js vendor dependency)
+        (function () {
+            const el = document.querySelector('.typed-text');
+            if (!el) return;
+            const items = el.getAttribute('data-typed-items').split(',').map(s => s.trim());
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                el.textContent = items[0];
+                return;
             }
-            function smoothScroll(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetPosition = document.querySelector(targetId).offsetTop;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 1000;
-                let start = null;
-                window.requestAnimationFrame(step);
-                function step(timestamp) {
-                    if (!start) start = timestamp;
-                    const progress = timestamp - start;
-                    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
-                    if (progress < duration) window.requestAnimationFrame(step);
+            let itemIdx = 0, charIdx = 0, deleting = false;
+            function tick() {
+                const word = items[itemIdx];
+                charIdx += deleting ? -1 : 1;
+                el.textContent = word.slice(0, charIdx);
+                let delay = deleting ? 50 : 100;
+                if (!deleting && charIdx === word.length) {
+                    delay = 2000;
+                    deleting = true;
+                } else if (deleting && charIdx === 0) {
+                    deleting = false;
+                    itemIdx = (itemIdx + 1) % items.length;
+                    delay = 400;
                 }
-                function easeInOutCubic(t, b, c, d) {
-                    t /= d / 2;
-                    if (t < 1) return c / 2 * t * t * t + b;
-                    t -= 2;
-                    return c / 2 * (t * t * t + 2) + b;
-                }
+                setTimeout(tick, delay);
             }
-        });
+            tick();
+        })();
+
+        // Mobile nav toggle
+        (function () {
+            const toggle = document.querySelector('.nav-toggle');
+            const links = document.querySelector('.nav-links');
+            toggle.addEventListener('click', () => {
+                const open = links.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+            links.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    links.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+
+        // Highlight nav link for the section in view
+        (function () {
+            const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+            const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+            const byId = {};
+            navLinks.forEach(a => { byId[a.getAttribute('href').slice(1)] = a; });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const link = byId[entry.target.id];
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(a => a.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px' });
+            sections.forEach(s => observer.observe(s));
+        })();
     </script>
-	<script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/js/main.js"></script>
-  
 </body>
 </html>
