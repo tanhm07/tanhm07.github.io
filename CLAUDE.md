@@ -16,19 +16,21 @@ python3 -m http.server 8080
 
 ## File structure
 
-- `index.html` — the entire personal website (About, Research, Publications, Teaching, Media, Consulting, Contact). All CSS is inline in a `<style>` block in the `<head>`. Content changes go here.
-- `eche.html` + `styles.css` — a separate minimal landing page for ECHE (analytics consulting brand).
-- `assets/js/main.js` — from the iPortfolio BootstrapMade template (v3.3.0). Handles the typed-text hero animation, smooth scroll, navbar active state, and AOS scroll animation init. Edit with care — it's shared boilerplate.
-- `assets/vendor/typed.js/` — typed.min.js used for the animated subtitle in the hero section.
+- `index.html` — the entire personal website (About, Research, Publications, Teaching, Media, Industry, Contact), fully self-contained: all CSS in a `<style>` block in the `<head>`, all JS inline at the end of `<body>`, icons as inline SVGs. Only external dependency is Google Fonts (Fraunces for headings, Inter for body). Content changes go here.
+- `eche.html` + `styles.css` — a separate minimal landing page for ECHE (analytics consulting brand). `styles.css` belongs to this page only, not the main site.
+- `assets/img/` — profile photo (`profile-img2.jpg`) and favicons.
+- `assets/js/` + `assets/vendor/` — leftover iPortfolio template boilerplate. No longer referenced by `index.html`; do not wire it back in.
 - `docs/` — PDFs (CV, teaching feedback, awards). Referenced by direct links in `index.html`.
 - `a3.html`, `a4.html`, `a5.html`, `a6.html`, `takehometest.html` — archived course assignment files (~800–970 KB each). Not linked from the main site.
 
 ## Key conventions in index.html
 
-- Content sections use `<section id="..." class="section-container">` with `<dl>/<dt>/<dd>` grids for publications, courses, and awards.
-- The responsive breakpoint at `max-width: 1199px` enlarges fonts significantly for tablet/mobile — when adding new text styles, mirror them in that media query.
-- The hero typed animation reads from `data-typed-items` on the `.typed` span: `"Assistant Dean, Deputy Head, Senior Lecturer"`.
-- Social/CV links are in the `.social-media-icons` div in the `<header>`.
+- Design tokens (colors, fonts, max-width) are CSS custom properties in `:root` — change them there, not inline.
+- Content sections are `<section id="...">` with an `<h2 class="section-title">`; sub-groups use `<h3>` (styled as uppercase labels).
+- Publication entries use `<ul class="pub-list">` with `.pub-title` / `.pub-venue` / `.pub-authors` spans. Courses, awards, and pedagogy use `<ul class="row-list">` with `.item-name` / `.item-meta`. Media mentions use `.media-list`; industry clients are `.chips` pills.
+- The single mobile breakpoint is `max-width: 760px` (hamburger nav, stacked hero, single-column rows).
+- The inline JS (bottom of `<body>`) handles three things: the typed hero animation (reads `data-typed-items` on `.typed-text`), the mobile nav toggle, and scroll-spy nav highlighting via IntersectionObserver. It respects `prefers-reduced-motion`.
+- Hero CV/LinkedIn/GitHub buttons live in `.hero-links`.
 
 ## Deployment
 
